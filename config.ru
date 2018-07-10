@@ -24,6 +24,13 @@ map '/headers' do
   run headers
 end
 
+
+map '/yo' do
+  headers = proc do |env|
+    [200, { 'Content-Type' => 'text/plain' }, [
+      'yo'
+    ]]
+
 map '/' do
   welcome = proc do |env|
     [200, { "Content-Type" => "text/html" }, [<<WELCOME_CONTENTS
