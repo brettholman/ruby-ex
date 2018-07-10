@@ -26,10 +26,11 @@ end
 
 
 map '/yo' do
-  headers = proc do |env|
-    [200, { 'Content-Type' => 'text/plain' }, [
-      'yo'
-    ]]
+  health = proc do |env|
+    [200, { "Content-Type" => "text/html" }, ["1"]]
+  end
+  run health
+end
 
 map '/' do
   welcome = proc do |env|
